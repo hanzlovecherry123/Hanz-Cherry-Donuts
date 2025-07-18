@@ -3,73 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hanz & Cherry Donuts</title>
+  <title>Hanz & Cherry Donuts | Premium Handmade Donuts</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome (for icons) -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+  <!-- Favicon -->
+  <link rel="icon" href="assets/logo.png" type="image/png">
 </head>
 <body>
-  <!-- Header/Hero Section -->
-  <header>
-    <h1 class="logo">Hanz & Cherry Donuts</h1>
-    <p class="tagline">Made with love by two sweethearts ❤️</p>
+  <!-- Header -->
+  <header id="home">
+    <div class="header-content">
+      <img src="assets/logo.png" alt="Hanz & Cherry Logo" class="logo-img">
+      <h1 class="logo">Hanz & Cherry Donuts</h1>
+      <p class="tagline">Made with love since <span class="highlight">2025</span> ❤️</p>
+    </div>
   </header>
 
   <!-- Navigation -->
   <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About Us</a>
-    <a href="#menu">Menu</a>
-    <a href="#shop">Shop</a>
-    <a href="#contact">Contact</a>
-    <a href="#faq">FAQ</a>
-    <a href="tel:+1234567890" class="call-button"><i class="fas fa-phone"></i> Call</a>
+    <a href="#home"><i class="fas fa-home"></i> Home</a>
+    <a href="#about"><i class="fas fa-heart"></i> About</a>
+    <a href="#menu"><i class="fas fa-utensils"></i> Menu</a>
+    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    <div class="cart-icon-container">
+      <a href="#cart" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+    </div>
+    <a href="tel:+1234567890" class="call-button"><i class="fas fa-phone"></i> Call Us</a>
   </nav>
 
-  <!-- Donut Menu Grid -->
-  <section class="menu" id="menu">
-    <div class="donut-card">
-      <img src="assets/cherry-donut.jpg" alt="Cherry Donut">
-      <h2>Cherry Donut</h2>
-      <p>Cherry Flavor</p>
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="about-content">
+      <h2>Our Story</h2>
+      <p>Founded in 2025, we specialize in handcrafted donuts made daily with the finest ingredients. Every donut tells a sweet story!</p>
+      <img src="assets/founders.jpg" alt="Hanz & Cherry Founders" class="founders-img">
     </div>
-    <div class="donut-card">
-      <img src="assets/honey-choco-donut.jpg" alt="Honey & Choco Donut">
-      <h2>Honey & Choco Donut</h2>
-      <p>Sweet Honey with Chocolate</p>
+  </section>
+
+  <!-- Menu Section -->
+  <section class="menu-section" id="menu">
+    <h2>Our Donut Flavors</h2>
+    <div class="menu-grid">
+      <!-- Donut 1 -->
+      <div class="donut-card">
+        <img src="assets/cherry-donut.jpg" alt="Cherry Donut">
+        <h3>Cherry Donut</h3>
+        <p>Cherry Flavor</p>
+        <p class="price">₱50</p>
+      </div>
+      
+      <!-- Donut 2 -->
+      <div class="donut-card">
+        <img src="assets/honey-choco-donut.jpg" alt="Honey & Choco Donut">
+        <h3>Honey & Choco</h3>
+        <p>Honey and Choco Flavor</p>
+        <p class="price">₱50</p>
+      </div>
+
+      <!-- Donut 3 -->
+      <div class="donut-card">
+        <img src="assets/choco-sprinkles-donut.jpg" alt="Choco Sprinkles Donut">
+        <h3>Choco Sprinkles</h3>
+        <p>Chocolate with Sprinkles</p>
+        <p class="price">₱50</p>
+      </div>
+
+      <!-- Donut 4 -->
+      <div class="donut-card">
+        <img src="assets/caramel-donut.jpg" alt="Caramel Donut">
+        <h3>Caramel Donut</h3>
+        <p>Caramel Flavor</p>
+        <p class="price">₱50</p>
+      </div>
+
+      <!-- Donut 5 -->
+      <div class="donut-card">
+        <img src="assets/strawberry-donut.jpg" alt="Strawberry Donut">
+        <h3>Strawberry Donut</h3>
+        <p>Strawberry Flavor</p>
+        <p class="price">₱50</p>
+      </div>
+
+      <!-- Donut 6 -->
+      <div class="donut-card">
+        <img src="assets/regular-donut.jpg" alt="Regular Donut">
+        <h3>Classic Donut</h3>
+        <p>Regular Donut</p>
+        <p class="price">₱50</p>
+      </div>
     </div>
-    <div class="donut-card">
-      <img src="assets/choco-sprinkles.jpg" alt="Choco Sprinkles Donut">
-      <h2>Choco Sprinkles Donut</h2>
-      <p>Choco with Sprinkles</p>
-    </div>
-    <div class="donut-card">
-      <img src="assets/caramel-donut.jpg" alt="Caramel Donut">
-      <h2>Caramel Donut</h2>
-      <p>Caramel Flavor</p>
-    </div>
-    <div class="donut-card">
-      <img src="assets/strawberry-donut.jpg" alt="Strawberry Donut">
-      <h2>Strawberry Donut</h2>
-      <p>Strawberry Flavor</p>
-    </div>
-    <div class="donut-card">
-      <img src="assets/regular-donut.jpg" alt="Regular Donut">
-      <h2>Classic Donut</h2>
-      <p>Simple & Delicious</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <h2>Visit Us</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <p><i class="fas fa-map-marker-alt"></i> 123 Sweet Street, Dessert City</p>
+        <p><i class="fas fa-clock"></i> Open daily: 7AM - 9PM</p>
+        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+      </div>
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <form id="messageForm">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea placeholder="Your Message..." required></textarea>
+          <button type="submit"><i class="fas fa-paper-plane"></i> Send</button>
+        </form>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Hanz & Cherry Donuts. Love Based In.</p>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p>© 2025 Hanz & Cherry Donuts. All rights reserved.</p>
     </div>
   </footer>
 
