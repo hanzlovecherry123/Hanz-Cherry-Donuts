@@ -1,87 +1,80 @@
+/* style.css */
 body {
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  background: #fff8f4;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(to bottom, #fff6f0, #ffe4e1);
   color: #333;
 }
 
-.navbar {
-  background: linear-gradient(90deg, #ff5ea3, #ff99cc);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  color: white;
-  font-family: 'Chewy', cursive;
-  font-size: 1.8rem;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.nav-links a.active,
-.nav-links a:hover {
-  text-decoration: underline;
-}
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+header {
   text-align: center;
-  padding: 3rem 2rem;
-  background: linear-gradient(180deg, #fff0f5, #ffe6e6);
-}
-
-.hero-img {
-  width: 300px;
-  max-width: 90%;
-  margin-bottom: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
-}
-
-.hero-text h2 {
-  font-size: 2rem;
-  font-family: 'Chewy', cursive;
-  color: #ff4081;
-}
-
-.hero-text p {
-  font-size: 1.1rem;
-  margin: 1rem 0;
-}
-
-.btn {
-  background: #ff69b4;
+  background-color: #ff7eb9;
+  padding: 1.5rem;
   color: white;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
 }
 
-.btn:hover {
-  background: #ff1493;
+header .logo {
+  max-width: 120px;
+  display: block;
+  margin: 0 auto 1rem auto;
+  border-radius: 50%;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+p {
+  margin-top: 0.3rem;
+  font-weight: bold;
+}
+
+main {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.donuts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.donut-card {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.donut-card:hover {
+  transform: scale(1.05);
+}
+
+.donut-card img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.donut-card h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.2rem;
+  color: #d72638;
 }
 
 footer {
   text-align: center;
-  padding: 1.2rem;
-  background: #ffe6f0;
+  padding: 1rem;
+  background-color: #ff7eb9;
+  color: white;
   font-size: 0.9rem;
 }
