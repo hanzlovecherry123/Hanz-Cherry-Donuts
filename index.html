@@ -1,62 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hanz & Cherry Donuts</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome (for icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Header/Hero Section -->
   <header>
-    <img src="assets/img/logo.png" alt="Hanz & Cherry Donuts Logo" class="logo" />
-    <h1>Hanz & Cherry Donuts</h1>
-    <p>Made with love by two sweethearts</p>
-
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Menu</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">Cart</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">FAQ</a></li>
-      </ul>
-    </nav>
+    <h1 class="logo">Hanz & Cherry Donuts</h1>
+    <p class="tagline">Made with love by two sweethearts ❤️</p>
   </header>
 
-  <main>
-    <section class="donuts">
-      <div class="donut-card">
-        <img src="assets/img/cherry-flavor.png" alt="Cherry Donut">
-        <h2>Cherry Flavor</h2>
-      </div>
-      <div class="donut-card">
-        <img src="assets/img/honey-choco-flavor.png" alt="Honey and Choco Donut">
-        <h2>Honey & Choco</h2>
-      </div>
-      <div class="donut-card">
-        <img src="assets/img/choco-sprinkles.png" alt="Choco Sprinkles Donut">
-        <h2>Choco with Sprinkles</h2>
-      </div>
-      <div class="donut-card">
-        <img src="assets/img/caramel-flavor.png" alt="Caramel Donut">
-        <h2>Caramel Flavor</h2>
-      </div>
-      <div class="donut-card">
-        <img src="assets/img/strawberry-flavor.png" alt="Strawberry Donut">
-        <h2>Strawberry Flavor</h2>
-      </div>
-      <div class="donut-card">
-        <img src="assets/img/regular-donut.png" alt="Regular Donut">
-        <h2>Regular Donut</h2>
-      </div>
-    </section>
-  </main>
+  <!-- Navigation -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#menu">Menu</a>
+    <a href="#shop">Shop</a>
+    <a href="#contact">Contact</a>
+    <a href="#faq">FAQ</a>
+    <a href="tel:+1234567890" class="call-button"><i class="fas fa-phone"></i> Call</a>
+  </nav>
 
+  <!-- Donut Menu Grid -->
+  <section class="menu" id="menu">
+    <div class="donut-card">
+      <img src="assets/cherry-donut.jpg" alt="Cherry Donut">
+      <h2>Cherry Donut</h2>
+      <p>Cherry Flavor</p>
+    </div>
+    <div class="donut-card">
+      <img src="assets/honey-choco-donut.jpg" alt="Honey & Choco Donut">
+      <h2>Honey & Choco Donut</h2>
+      <p>Sweet Honey with Chocolate</p>
+    </div>
+    <div class="donut-card">
+      <img src="assets/choco-sprinkles.jpg" alt="Choco Sprinkles Donut">
+      <h2>Choco Sprinkles Donut</h2>
+      <p>Choco with Sprinkles</p>
+    </div>
+    <div class="donut-card">
+      <img src="assets/caramel-donut.jpg" alt="Caramel Donut">
+      <h2>Caramel Donut</h2>
+      <p>Caramel Flavor</p>
+    </div>
+    <div class="donut-card">
+      <img src="assets/strawberry-donut.jpg" alt="Strawberry Donut">
+      <h2>Strawberry Donut</h2>
+      <p>Strawberry Flavor</p>
+    </div>
+    <div class="donut-card">
+      <img src="assets/regular-donut.jpg" alt="Regular Donut">
+      <h2>Classic Donut</h2>
+      <p>Simple & Delicious</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Hanz & Cherry Donuts. Love Baked In.</p>
+    <p>© 2025 Hanz & Cherry Donuts. Love Based In.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
   </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
