@@ -2,102 +2,83 @@
 const donuts = [
     {
         name: "Cherry Donut",
-        description: "Sweet cherry flavor with a creamy filling",
+        flavor: "Cherry Flavor",
         price: "₱50",
         image: "assets/img/cherry-donut.jpg"
     },
     {
         name: "Honey & Choco",
-        description: "Golden honey drizzle with rich chocolate",
+        flavor: "Honey and Choco Flavor",
         price: "₱50",
         image: "assets/img/honey-choco-donut.jpg"
     },
     {
         name: "Choco Sprinkles",
-        description: "Rich chocolate with colorful sprinkles",
+        flavor: "Chocolate with Sprinkles",
         price: "₱50",
         image: "assets/img/choco-sprinkles-donut.jpg"
     },
     {
         name: "Caramel Donut",
-        description: "Buttery caramel with a hint of sea salt",
+        flavor: "Caramel Flavor",
         price: "₱50",
         image: "assets/img/caramel-donut.jpg"
     },
     {
         name: "Strawberry Donut",
-        description: "Fresh strawberry glaze with real fruit",
+        flavor: "Strawberry Flavor",
         price: "₱50",
         image: "assets/img/strawberry-donut.jpg"
     },
     {
         name: "Classic Donut",
-        description: "Simple, timeless, and delicious",
+        flavor: "Regular Donut",
         price: "₱50",
         image: "assets/img/regular-donut.jpg"
     }
 ];
 
-// Initialize the page
+// Initialize page
 document.addEventListener('DOMContentLoaded', function() {
     renderDonuts();
     setupCart();
-    setupSmoothScrolling();
 });
 
 // Render donut cards
 function renderDonuts() {
-    const donutGrid = document.querySelector('.donut-grid');
+    const grid = document.querySelector('.donut-grid');
     
     donuts.forEach(donut => {
         const card = document.createElement('div');
         card.className = 'donut-card';
         card.innerHTML = `
-            <img src="${donut.image}" alt="${donut.name}" class="donut-img">
-            <div class="donut-info">
-                <h3>${donut.name}</h3>
-                <p>${donut.description}</p>
-                <p class="price">${donut.price}</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
+            <img src="${donut.image}" alt="${donut.name}">
+            <h3>${donut.name}</h3>
+            <p>${donut.flavor}</p>
+            <p class="price">${donut.price}</p>
+            <button class="add-to-cart">Add to Cart</button>
         `;
-        donutGrid.appendChild(card);
+        grid.appendChild(card);
     });
 }
 
 // Cart functionality
 function setupCart() {
-    const cartCount = document.querySelector('.cart-count');
-    let count = 0;
-
+    let cartCount = 0;
+    const cartBtn = document.querySelector('.cart-btn');
+    
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('add-to-cart')) {
-            count++;
-            cartCount.textContent = count;
+            cartCount++;
+            if (cartCount > 0) {
+                cartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> ${cartCount}`;
+            }
             
             // Visual feedback
-            e.target.textContent = 'Added!';
-            e.target.style.backgroundColor = '#4CAF50';
-            
+            e.target.textContent = "Added!";
             setTimeout(() => {
-                e.target.textContent = 'Add to Cart';
-                e.target.style.backgroundColor = '';
-            }, 1500);
+                e.target.textContent = "Add to Cart";
+            }, 1000);
         }
-    });
-}
-
-// Smooth scrolling
-function setupSmoothScrolling() {
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#cart') return;
-            
-            document.querySelector(targetId).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
     });
 }
