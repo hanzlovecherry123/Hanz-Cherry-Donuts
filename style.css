@@ -1,97 +1,110 @@
-/* ===== MAIN STYLES ===== */
-body {
-  font-family: 'Quicksand', sans-serif;
-  background-color: #fff5e6; /* Cream background */
-  color: #333;
-  line-height: 1.6;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* ===== HEADER ===== */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #fff9f9;
+    color: #333;
+}
+
 header {
-  text-align: center;
-  padding: 30px 0;
+    background-color: #ff6b8b;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
 }
 
 h1 {
-  font-family: 'Pacifico', cursive;
-  color: #6b3e26; /* Dark brown */
-  font-size: 2.8rem;
-  margin-bottom: 5px;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
 }
 
-.tagline {
-  font-style: italic;
-  color: #6b3e26;
-  font-size: 1.2rem;
-}
-
-/* ===== SECTIONS ===== */
-.section {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  margin: 30px 0;
+.story, .flavors {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 h2 {
-  font-family: 'Pacifico', cursive;
-  color: #6b3e26;
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #ff6b8b;
+    font-size: 2rem;
 }
 
-/* ===== DONUT GRID ===== */
-.flavor-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+.story p {
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
-.donut {
-  padding: 15px 0;
-  border-bottom: 1px dashed #ddd;
+.founders {
+    text-align: right;
+    font-style: italic;
+    color: #666;
 }
 
-.donut h3 {
-  color: #ff9bb3; /* Pink */
-  font-size: 1.3rem;
-  margin-bottom: 5px;
+.donut-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.donut-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.donut-card h3 {
+    color: #ff6b8b;
+    margin-bottom: 0.5rem;
+}
+
+.flavor-desc {
+    color: #666;
+    margin-bottom: 0.5rem;
+    min-height: 40px;
 }
 
 .price {
-  color: #6b3e26;
-  font-weight: bold;
-  margin: 8px 0;
-  font-size: 1.1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
 }
 
-/* ===== BUTTONS ===== */
 .add-btn {
-  background: #ff9bb3; /* Pink */
-  color: white;
-  border: none;
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-family: 'Quicksand';
-  cursor: pointer;
-  transition: all 0.3s;
+    background-color: #ff6b8b;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
 }
 
 .add-btn:hover {
-  background: #6b3e26; /* Brown */
+    background-color: #ff4c6d;
 }
 
-/* ===== RESPONSIVE ===== */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .flavor-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  h1 {
-    font-size: 2.2rem;
-  }
+    .donut-grid {
+        grid-template-columns: 1fr;
+    }
 }
