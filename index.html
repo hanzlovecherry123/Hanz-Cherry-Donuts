@@ -4,53 +4,842 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hanz & Cherry Donuts</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        :root {
+            --primary: #ff6b8b;
+            --secondary: #ffd166;
+            --accent: #a663cc;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --cherry: #e63946;
+            --choco: #6d4c41;
+            --pink: #ffafcc;
+            --cream: #ffddd2;
+            --caramel: #d08a3e;
+            --strawberry: #e74c3c;
+        }
+        
+        body {
+            background-color: #fff5f7;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--cherry) 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        
+        .donut-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="white" stroke="white" stroke-width="3"/><circle cx="50" cy="50" r="30" fill="none" stroke="white" stroke-width="3"/></svg>');
+            background-size: 150px;
+            z-index: 1;
+        }
+        
+        /* Divider */
+        .divider {
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            margin: 2rem auto;
+            width: 80%;
+            border-radius: 2px;
+        }
+        
+        /* Sections */
+        .section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .story {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 3rem;
+            margin: -5rem auto 2rem;
+            position: relative;
+            max-width: 900px;
+            transition: transform 0.3s ease;
+        }
+        
+        .story:hover {
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--cherry);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        h2:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .story p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #555;
+        }
+        
+        .founders {
+            font-weight: 600;
+            font-style: italic;
+            color: var(--accent);
+            text-align: right;
+            margin-top: 1rem;
+        }
+        
+        /* Donut Flavors Section */
+        .flavors {
+            background-color: #fef9ff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .donut-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .donut-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .donut-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .donut-header {
+            height: 200px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cherry { background: linear-gradient(135deg, #ffafbd, #ffc3a0); }
+        .honey-choco { background: linear-gradient(135deg, #d1913c, #ffd194); }
+        .choco-sprinkles { background: linear-gradient(135deg, #8e2de2, #4a00e0); }
+        .caramel { background: linear-gradient(135deg, #d08a3e, #f3c969); }
+        .strawberry { background: linear-gradient(135deg, #e74c3c, #f8a5c2); }
+        .regular { background: linear-gradient(135deg, #a1887f, #d7ccc8); }
+        
+        .donut-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: white;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .donut-img:before {
+            content: '';
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+        }
+        
+        .cherry .donut-img:before { background: radial-gradient(circle, #ff9a9e, #fad0c4); }
+        .honey-choco .donut-img:before { background: radial-gradient(circle, #d1913c, #ffd194); }
+        .choco-sprinkles .donut-img:before { background: radial-gradient(circle, #614385, #516395); }
+        .caramel .donut-img:before { background: radial-gradient(circle, #d08a3e, #f3c969); }
+        .strawberry .donut-img:before { background: radial-gradient(circle, #e74c3c, #f8a5c2); }
+        .regular .donut-img:before { background: radial-gradient(circle, #a1887f, #d7ccc8); }
+        
+        .sprinkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        
+        .sprinkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+        }
+        
+        .donut-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .flavor-desc {
+            color: #666;
+            margin-bottom: 1rem;
+            min-height: 40px;
+            font-style: italic;
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--cherry);
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            background: var(--cherry);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 3rem;
+        }
+        
+        .social-icons {
+            margin: 1.5rem 0;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--cherry);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .donut-img {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .story {
+                padding: 2rem 1rem;
+                margin-top: -3rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .flavors {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .donut-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 3rem 1rem;
+            }
+        }
+        
+        /* Special Offer Banner */
+        .offer-banner {
+            background: linear-gradient(90deg, var(--secondary), #ff9e00);
+            color: #333;
+            text-align: center;
+            padding: 0.8rem;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Cart */
+        .cart-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--cherry);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .cart-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--secondary);
+            color: #333;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cart-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100%;
+            background: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            transition: right 0.4s ease;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .cart-panel.active {
+            right: 0;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #777;
+        }
+        
+        .cart-items {
+            margin-bottom: 20px;
+        }
+        
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cart-item-info {
+            flex-grow: 1;
+        }
+        
+        .cart-item-name {
+            font-weight: 600;
+        }
+        
+        .cart-item-price {
+            color: var(--cherry);
+            font-weight: 600;
+        }
+        
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 20px 0;
+            padding-top: 10px;
+            border-top: 2px solid #eee;
+        }
+        
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .checkout-btn:hover {
+            background: var(--cherry);
+        }
+    </style>
 </head>
 <body>
+    <!-- Cart Icon -->
+    <div class="cart-icon" id="cartIcon">
+        <i class="fas fa-shopping-cart"></i>
+        <div class="cart-count" id="cartCount">0</div>
+    </div>
+    
+    <!-- Cart Panel -->
+    <div class="cart-panel" id="cartPanel">
+        <div class="cart-header">
+            <h3>Your Donut Cart</h3>
+            <button class="close-cart" id="closeCart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here dynamically -->
+            <div class="empty-cart">Your cart is empty. Add some donuts!</div>
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">₽0</span>
+        </div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+    
+    <!-- Special Offer Banner -->
+    <div class="offer-banner">
+        <i class="fas fa-tag"></i> TODAY ONLY: Buy 3 Donuts, Get 1 Free! <i class="fas fa-tag"></i>
+    </div>
+    
+    <!-- Header Section -->
     <header>
-        <h1>Hanz & Cherry Donuts</h1>
-        <p>Made with love since 2025</p>
+        <div class="donut-background"></div>
+        <div class="header-content">
+            <h1>Hanz & Cherry Donuts</h1>
+            <p class="tagline">Made with love since 2025</p>
+        </div>
     </header>
-
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>Founded in 2025, we specialize in handcrafted donuts made daily with the finest ingredients. Every donut tells a sweet story!</p>
-        <p class="founders">- Hanz & Cherry Founders</p>
+    
+    <div class="divider"></div>
+    
+    <!-- Our Story Section -->
+    <section class="section">
+        <div class="story">
+            <h2>Our Story</h2>
+            <p>Founded in 2025 by childhood friends Hanz and Cherry, our journey began with a simple dream: to create the most delightful donuts using only the finest ingredients.</p>
+            <p>What started as a small kitchen experiment has blossomed into a beloved local bakery where every donut tells a sweet story. Each morning, we handcraft our donuts fresh, infusing them with creativity and passion.</p>
+            <p class="founders">- Hanz & Cherry, Founders</p>
+        </div>
     </section>
-
-    <section class="flavors">
-        <h2>Our Donut Flavors</h2>
-        <div class="donut-grid">
-            <!-- Cherry Donut -->
-            <div class="donut-card">
-                <h3>Cherry Donut</h3>
-                <p class="flavor-desc">Cherry Flavor</p>
-                <p class="price">₽50</p>
-                <button class="add-btn">Add</button>
-            </div>
-
-            <!-- Honey & Choco Donut -->
-            <div class="donut-card">
-                <h3>Honey & Choco Donut</h3>
-                <p class="flavor-desc">Honey and Choco Flavor</p>
-                <p class="price">₽50</p>
-                <button class="add-btn">Add</button>
-            </div>
-
-            <!-- Choco Sprinkles Donut -->
-            <div class="donut-card">
-                <h3>Choco Sprinkles Donut</h3>
-                <p class="flavor-desc">Chocolate with Sprinkles</p>
-                <p class="price">₽50</p>
-                <button class="add-btn">Add</button>
+    
+    <!-- Our Donut Flavors Section -->
+    <section class="section">
+        <div class="flavors">
+            <h2>Our Delicious Donuts</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: #777;">All our donuts are freshly made daily - ₽50 each</p>
+            <div class="donut-grid">
+                <!-- Cherry Donut -->
+                <div class="donut-card cherry" data-id="1" data-name="Cherry Donut" data-price="50">
+                    <div class="donut-header">
+                        <div class="donut-img">
+                            <i class="fas fa-cherry" style="font-size: 2.5rem; color: #e63946;"></i>
+                        </div>
+                    </div>
+                    <div class="donut-content">
+                        <h3>Cherry Donut</h3>
+                        <p class="flavor-desc">Fresh cherries in a sweet glaze</p>
+                        <p class="price">₽50</p>
+                        <button class="btn add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Honey & Choco Donut -->
+                <div class="donut-card honey-choco" data-id="2" data-name="Honey & Choco Donut" data-price="50">
+                    <div class="donut-header">
+                        <div class="donut-img">
+                            <i class="fas fa-honey-pot" style="font-size: 2.5rem; color: #d1913c;"></i>
+                        </div>
+                    </div>
+                    <div class="donut-content">
+                        <h3>Honey & Choco Donut</h3>
+                        <p class="flavor-desc">Golden honey and rich chocolate</p>
+                        <p class="price">₽50</p>
+                        <button class="btn add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Choco Sprinkles Donut -->
+                <div class="donut-card choco-sprinkles" data-id="3" data-name="Choco Sprinkles Donut" data-price="50">
+                    <div class="donut-header">
+                        <div class="donut-img">
+                            <i class="fas fa-candy-cane" style="font-size: 2.5rem; color: #fff;"></i>
+                        </div>
+                        <div class="sprinkles" id="sprinkles-1"></div>
+                    </div>
+                    <div class="donut-content">
+                        <h3>Choco Sprinkles Donut</h3>
+                        <p class="flavor-desc">Chocolate with rainbow sprinkles</p>
+                        <p class="price">₽50</p>
+                        <button class="btn add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Caramel Donut -->
+                <div class="donut-card caramel" data-id="4" data-name="Caramel Donut" data-price="50">
+                    <div class="donut-header">
+                        <div class="donut-img">
+                            <i class="fas fa-fire" style="font-size: 2.5rem; color: #d08a3e;"></i>
+                        </div>
+                    </div>
+                    <div class="donut-content">
+                        <h3>Caramel Donut</h3>
+                        <p class="flavor-desc">Rich caramel drizzle topping</p>
+                        <p class="price">₽50</p>
+                        <button class="btn add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Strawberry Donut -->
+                <div class="donut-card strawberry" data-id="5" data-name="Strawberry Donut" data-price="50">
+                    <div class="donut-header">
+                        <div class="donut-img">
+                            <i class="fas fa-strawberry" style="font-size: 2.5rem; color: #e74c3c;"></i>
+                        </div>
+                    </div>
+                    <div class="donut-content">
+                        <h3>Strawberry Donut</h3>
+                        <p class="flavor-desc">Fresh strawberries and cream</p>
+                        <p class="price">₽50</p>
+                        <button class="btn add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Regular Donut -->
+                <div class="donut-card regular" data-id="6" data-name="Classic Donut" data-price="50">
+                    <div class="donut-header">
+                        <div class="donut-img">
+                            <i class="fas fa-circle" style="font-size: 2.5rem; color: #a1887f;"></i>
+                        </div>
+                    </div>
+                    <div class="donut-content">
+                        <h3>Classic Donut</h3>
+                        <p class="flavor-desc">Traditional glazed perfection</p>
+                        <p class="price">₽50</p>
+                        <button class="btn add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
+    
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Hanz & Cherry Donuts</p>
+        <h2 style="color: var(--secondary); margin-bottom: 1rem;">Visit Us Today!</h2>
+        <p>Open Daily: 7:00 AM - 9:00 PM</p>
+        <p>123 Sweet Street, Donutville</p>
+        
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+        
+        <div class="footer-links">
+            <a href="#">Our Story</a>
+            <a href="#">Menu</a>
+            <a href="#">Locations</a>
+            <a href="#">Careers</a>
+            <a href="#">Contact Us</a>
+        </div>
+        
+        <p>&copy; 2025 Hanz & Cherry Donuts. All rights reserved.</p>
+        <p style="margin-top: 1rem; color: #aaa;">Made with ❤️ and 🍩</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Create sprinkles for the donut
+        function createSprinkles(containerId, count) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            for (let i = 0; i < count; i++) {
+                const sprinkle = document.createElement('div');
+                sprinkle.classList.add('sprinkle');
+                
+                // Random position
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                
+                // Random color
+                const colors = ['#ff6b8b', '#ffd166', '#a663cc', '#06d6a0', '#ff9e00'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Random size
+                const size = Math.random() * 6 + 4;
+                
+                // Random rotation
+                const rotation = Math.random() * 360;
+                
+                sprinkle.style.left = `${left}%`;
+                sprinkle.style.top = `${top}%`;
+                sprinkle.style.backgroundColor = color;
+                sprinkle.style.width = `${size}px`;
+                sprinkle.style.height = `${size}px`;
+                sprinkle.style.transform = `rotate(${rotation}deg)`;
+                
+                container.appendChild(sprinkle);
+            }
+        }
+        
+        // Cart functionality
+        let cart = [];
+        const cartIcon = document.getElementById('cartIcon');
+        const cartPanel = document.getElementById('cartPanel');
+        const cartCount = document.getElementById('cartCount');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        const closeCart = document.getElementById('closeCart');
+        
+        // Toggle cart panel
+        cartIcon.addEventListener('click', () => {
+            cartPanel.classList.add('active');
+        });
+        
+        closeCart.addEventListener('click', () => {
+            cartPanel.classList.remove('active');
+        });
+        
+        // Add to cart functionality
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.donut-card');
+                const id = card.dataset.id;
+                const name = card.dataset.name;
+                const price = parseInt(card.dataset.price);
+                
+                // Check if item is already in cart
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({
+                        id,
+                        name,
+                        price,
+                        quantity: 1
+                    });
+                }
+                
+                // Update cart UI
+                updateCart();
+                
+                // Show cart panel
+                cartPanel.classList.add('active');
+                
+                // Button animation
+                const originalText = this.textContent;
+                this.textContent = 'Added!';
+                this.style.backgroundColor = '#06d6a0';
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.style.backgroundColor = '';
+                }, 2000);
+            });
+        });
+        
+        // Update cart UI
+        function updateCart() {
+            // Update cart count
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Update cart items
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<div class="empty-cart">Your cart is empty. Add some donuts!</div>';
+                cartTotal.textContent = '₽0';
+                return;
+            }
+            
+            let totalPrice = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                totalPrice += itemTotal;
+                
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <div class="donut-img" style="background: #f8f9fa; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-donate" style="font-size: 1.5rem; color: #ff6b8b;"></i>
+                    </div>
+                    <div class="cart-item-info">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-quantity">Quantity: ${item.quantity}</div>
+                    </div>
+                    <div class="cart-item-price">₽${itemTotal}</div>
+                `;
+                
+                cartItems.appendChild(cartItem);
+            });
+            
+            cartTotal.textContent = `₽${totalPrice}`;
+        }
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createSprinkles('sprinkles-1', 30);
+            
+            // Initialize cart
+            updateCart();
+        });
+    </script>
 </body>
-</html>
+                </html>
