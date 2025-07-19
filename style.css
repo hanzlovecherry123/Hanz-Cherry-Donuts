@@ -1,13 +1,10 @@
 :root {
     --pink: #ff9bb3;
-    --dark-pink: #ff7a9b;
+    --dark-pink: #e87b9b;
     --brown: #6b3e26;
-    --light-brown: #8a5a44;
-    --yellow: #ffd166;
     --cream: #fff5e6;
     --white: #ffffff;
     --text: #333333;
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -23,182 +20,170 @@ body {
     line-height: 1.6;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Header Styles */
 header {
-    background: linear-gradient(135deg, var(--pink), var(--yellow));
-    padding: 20px 0;
     text-align: center;
-    position: relative;
-    box-shadow: var(--shadow);
+    padding: 2rem 0;
+    background: linear-gradient(135deg, var(--pink), var(--cream));
 }
 
-.logo {
-    height: 120px;
-    margin-bottom: 10px;
+.logo-container h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    color: var(--brown);
+}
+
+.logo-container h1 span {
+    display: block;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    letter-spacing: 3px;
 }
 
 .tagline {
-    font-family: 'Pacifico', cursive;
-    font-size: 1.5rem;
-    color: var(--white);
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    font-style: italic;
+    margin-top: 0.5rem;
+    color: var(--brown);
 }
 
-/* Navigation */
 nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
     background-color: var(--brown);
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links a {
+nav a {
     color: var(--white);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
-    color: var(--yellow);
+nav a:hover {
+    color: var(--pink);
 }
 
-.cart-icon {
+.cart-btn {
+    position: absolute;
+    right: 2rem;
     color: var(--white);
     font-size: 1.2rem;
-    position: relative;
 }
 
-.cart-count {
-    position: absolute;
-    top: -10px;
-    right: -10px;
+.hero {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: var(--white);
+}
+
+.hero h2 {
+    font-family: 'Pacifico', cursive;
+    color: var(--brown);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-btn {
+    display: inline-block;
     background-color: var(--pink);
     color: var(--white);
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    font-weight: bold;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
 }
 
-/* Menu Section */
+.cta-btn:hover {
+    background-color: var(--dark-pink);
+}
+
 .menu-section {
-    padding: 60px 0;
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.section-title {
+.menu-section h2 {
     text-align: center;
     font-family: 'Pacifico', cursive;
     color: var(--brown);
     font-size: 2.5rem;
-    margin-bottom: 40px;
+    margin-bottom: 2rem;
 }
 
 .donut-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
 .donut-card {
     background-color: var(--white);
     border-radius: 15px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.donut-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.donut-img {
+.donut-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
 }
 
-.donut-info {
-    padding: 20px;
-}
-
-.donut-info h3 {
-    font-size: 1.5rem;
+.donut-card h3 {
+    font-family: 'Pacifico', cursive;
     color: var(--brown);
-    margin-bottom: 10px;
-}
-
-.donut-info p {
-    color: var(--text);
-    margin-bottom: 15px;
+    margin-bottom: 0.5rem;
 }
 
 .price {
     font-weight: bold;
-    font-size: 1.2rem;
     color: var(--brown);
-    margin-bottom: 15px;
+    margin: 0.5rem 0;
 }
 
 .add-to-cart {
-    background-color: var(--yellow);
-    color: var(--brown);
+    background-color: var(--pink);
+    color: var(--white);
     border: none;
-    padding: 10px 20px;
+    padding: 0.5rem 1rem;
     border-radius: 20px;
-    font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s;
-    width: 100%;
 }
 
 .add-to-cart:hover {
-    background-color: #ffc233;
+    background-color: var(--dark-pink);
 }
 
-/* Responsive Design */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--brown);
+    color: var(--white);
+}
+
 @media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        gap: 15px;
+    nav {
+        flex-wrap: wrap;
+        gap: 1rem;
     }
-
-    .donut-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    
+    .logo-container h1 {
+        font-size: 2.5rem;
     }
-}
-
-@media (max-width: 480px) {
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .donut-grid {
-        grid-template-columns: 1fr;
+    
+    .logo-container h1 span {
+        font-size: 2rem;
     }
 }
