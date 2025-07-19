@@ -4,171 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hanz & Cherry Donuts</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Clean, minimal CSS */
-        :root {
-            --pink: #ff9bb3;
-            --brown: #6b3e26;
-            --cream: #fff5e6;
-            --white: #ffffff;
-        }
-        
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background: var(--cream);
-            color: #333;
-            line-height: 1.6;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        h1, h2 {
-            font-family: 'Pacifico', cursive;
-            color: var(--brown);
-            text-align: center;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .tagline {
-            text-align: center;
-            font-style: italic;
-            margin-bottom: 40px;
-        }
-        
-        .section {
-            margin: 40px 0;
-            padding: 30px;
-            background: var(--white);
-            border-radius: 10px;
-        }
-        
-        .flavor-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .donut {
-            padding: 20px;
-            border-bottom: 1px dashed #ddd;
-        }
-        
-        .donut h3 {
-            color: var(--pink);
-            margin-bottom: 5px;
-            font-size: 1.3rem;
-        }
-        
-        .price {
-            font-weight: bold;
-            color: var(--brown);
-            margin: 10px 0;
-            font-size: 1.1rem;
-        }
-        
-        .add-btn {
-            background: var(--pink);
-            color: white;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-family: 'Quicksand';
-            transition: all 0.3s;
-        }
-        
-        .add-btn:hover {
-            background: var(--brown);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>Hanz & Cherry Donuts</h1>
-        <p class="tagline">Made with love since 2025</p>
+        <p>Made with love since 2025</p>
     </header>
 
-    <section class="section">
+    <section class="story">
         <h2>Our Story</h2>
         <p>Founded in 2025, we specialize in handcrafted donuts made daily with the finest ingredients. Every donut tells a sweet story!</p>
-        <p>- Hanz & Cherry Founders</p>
+        <p class="founders">- Hanz & Cherry Founders</p>
     </section>
 
-    <section class="section">
+    <section class="flavors">
         <h2>Our Donut Flavors</h2>
-        
-        <div class="flavor-grid">
-            <!-- Column 1 -->
-            <div>
-                <div class="donut">
-                    <h3>Cherry Donut</h3>
-                    <p>Cherry Flavor</p>
-                    <p class="price">₱50</p>
-                    <button class="add-btn">Add to Cart</button>
-                </div>
-                
-                <div class="donut">
-                    <h3>Honey & Choco Donut</h3>
-                    <p>Honey and Choco Flavor</p>
-                    <p class="price">₱50</p>
-                    <button class="add-btn">Add to Cart</button>
-                </div>
-                
-                <div class="donut">
-                    <h3>Choco Sprinkles Donut</h3>
-                    <p>Chocolate with Sprinkles</p>
-                    <p class="price">₱50</p>
-                    <button class="add-btn">Add to Cart</button>
-                </div>
+        <div class="donut-grid">
+            <!-- Cherry Donut -->
+            <div class="donut-card">
+                <h3>Cherry Donut</h3>
+                <p class="flavor-desc">Cherry Flavor</p>
+                <p class="price">₽50</p>
+                <button class="add-btn">Add</button>
             </div>
-            
-            <!-- Column 2 -->
-            <div>
-                <div class="donut">
-                    <h3>Caramel Donut</h3>
-                    <p>Caramel Flavor</p>
-                    <p class="price">₱50</p>
-                    <button class="add-btn">Add to Cart</button>
-                </div>
-                
-                <div class="donut">
-                    <h3>Strawberry Donut</h3>
-                    <p>Strawberry Flavor</p>
-                    <p class="price">₱50</p>
-                    <button class="add-btn">Add to Cart</button>
-                </div>
-                
-                <div class="donut">
-                    <h3>Classic Donut</h3>
-                    <p>Regular Donut</p>
-                    <p class="price">₱50</p>
-                    <button class="add-btn">Add to Cart</button>
-                </div>
+
+            <!-- Honey & Choco Donut -->
+            <div class="donut-card">
+                <h3>Honey & Choco Donut</h3>
+                <p class="flavor-desc">Honey and Choco Flavor</p>
+                <p class="price">₽50</p>
+                <button class="add-btn">Add</button>
+            </div>
+
+            <!-- Choco Sprinkles Donut -->
+            <div class="donut-card">
+                <h3>Choco Sprinkles Donut</h3>
+                <p class="flavor-desc">Chocolate with Sprinkles</p>
+                <p class="price">₽50</p>
+                <button class="add-btn">Add</button>
             </div>
         </div>
     </section>
 
-    <script>
-        // Simple cart functionality
-        document.querySelectorAll('.add-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const originalText = this.textContent;
-                this.textContent = 'Added!';
-                this.style.backgroundColor = '#4CAF50';
-                
-                setTimeout(() => {
-                    this.textContent = originalText;
-                    this.style.backgroundColor = '';
-                }, 1000);
-            });
-        });
-    </script>
+    <footer>
+        <p>&copy; 2025 Hanz & Cherry Donuts</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
