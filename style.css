@@ -1,189 +1,97 @@
-:root {
-    --pink: #ff9bb3;
-    --dark-pink: #e87b9b;
-    --brown: #6b3e26;
-    --cream: #fff5e6;
-    --white: #ffffff;
-    --text: #333333;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* ===== MAIN STYLES ===== */
 body {
-    font-family: 'Quicksand', sans-serif;
-    background-color: var(--cream);
-    color: var(--text);
-    line-height: 1.6;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #fff5e6; /* Cream background */
+  color: #333;
+  line-height: 1.6;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
+/* ===== HEADER ===== */
 header {
-    text-align: center;
-    padding: 2rem 0;
-    background: linear-gradient(135deg, var(--pink), var(--cream));
+  text-align: center;
+  padding: 30px 0;
 }
 
-.logo-container h1 {
-    font-family: 'Pacifico', cursive;
-    font-size: 3rem;
-    color: var(--brown);
-}
-
-.logo-container h1 span {
-    display: block;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 700;
-    font-size: 2.5rem;
-    letter-spacing: 3px;
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: #6b3e26; /* Dark brown */
+  font-size: 2.8rem;
+  margin-bottom: 5px;
 }
 
 .tagline {
-    font-style: italic;
-    margin-top: 0.5rem;
-    color: var(--brown);
+  font-style: italic;
+  color: #6b3e26;
+  font-size: 1.2rem;
 }
 
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    padding: 1rem;
-    background-color: var(--brown);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+/* ===== SECTIONS ===== */
+.section {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  margin: 30px 0;
 }
 
-nav a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s;
+h2 {
+  font-family: 'Pacifico', cursive;
+  color: #6b3e26;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-nav a:hover {
-    color: var(--pink);
+/* ===== DONUT GRID ===== */
+.flavor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
-.cart-btn {
-    position: absolute;
-    right: 2rem;
-    color: var(--white);
-    font-size: 1.2rem;
+.donut {
+  padding: 15px 0;
+  border-bottom: 1px dashed #ddd;
 }
 
-.hero {
-    padding: 4rem 2rem;
-    text-align: center;
-    background-color: var(--white);
-}
-
-.hero h2 {
-    font-family: 'Pacifico', cursive;
-    color: var(--brown);
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.cta-btn {
-    display: inline-block;
-    background-color: var(--pink);
-    color: var(--white);
-    padding: 0.8rem 2rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    margin-top: 1rem;
-    transition: background-color 0.3s;
-}
-
-.cta-btn:hover {
-    background-color: var(--dark-pink);
-}
-
-.menu-section {
-    padding: 3rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.menu-section h2 {
-    text-align: center;
-    font-family: 'Pacifico', cursive;
-    color: var(--brown);
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-}
-
-.donut-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.donut-card {
-    background-color: var(--white);
-    border-radius: 15px;
-    padding: 1.5rem;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.donut-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-}
-
-.donut-card h3 {
-    font-family: 'Pacifico', cursive;
-    color: var(--brown);
-    margin-bottom: 0.5rem;
+.donut h3 {
+  color: #ff9bb3; /* Pink */
+  font-size: 1.3rem;
+  margin-bottom: 5px;
 }
 
 .price {
-    font-weight: bold;
-    color: var(--brown);
-    margin: 0.5rem 0;
+  color: #6b3e26;
+  font-weight: bold;
+  margin: 8px 0;
+  font-size: 1.1rem;
 }
 
-.add-to-cart {
-    background-color: var(--pink);
-    color: var(--white);
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+/* ===== BUTTONS ===== */
+.add-btn {
+  background: #ff9bb3; /* Pink */
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-family: 'Quicksand';
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-.add-to-cart:hover {
-    background-color: var(--dark-pink);
+.add-btn:hover {
+  background: #6b3e26; /* Brown */
 }
 
-footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: var(--brown);
-    color: var(--white);
-}
-
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-    nav {
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-    
-    .logo-container h1 {
-        font-size: 2.5rem;
-    }
-    
-    .logo-container h1 span {
-        font-size: 2rem;
-    }
+  .flavor-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
 }
