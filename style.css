@@ -1,73 +1,204 @@
-/* ===== COLOR VARIABLES ===== */
 :root {
-  --pink: #ff9bb3;      /* Cherry pink */
-  --brown: #6b3e26;     /* Donut brown */
-  --yellow: #ffd166;     /* Honey yellow */
-  --cream: #fff5e6;      /* Background */
-  --red: #ff6b6b;       /* Accents */
-  --white: #ffffff;
-  --text: #333333;
+    --pink: #ff9bb3;
+    --dark-pink: #ff7a9b;
+    --brown: #6b3e26;
+    --light-brown: #8a5a44;
+    --yellow: #ffd166;
+    --cream: #fff5e6;
+    --white: #ffffff;
+    --text: #333333;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* ===== BASE STYLES ===== */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Quicksand', sans-serif;
-  background-color: var(--cream);
-  color: var(--text);
-  line-height: 1.6;
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
 }
 
-/* ===== HEADER WITH LOGO ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
 header {
-  background: linear-gradient(135deg, var(--pink), var(--yellow));
-  padding: 2rem 0;
-  text-align: center;
+    background: linear-gradient(135deg, var(--pink), var(--yellow));
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    box-shadow: var(--shadow);
 }
 
-.logo-img {
-  height: 120px;  /* Adjust based on your logo's aspect ratio */
-  width: auto;
-  margin-bottom: 1rem;
+.logo {
+    height: 120px;
+    margin-bottom: 10px;
 }
 
 .tagline {
-  font-size: 1.2rem;
-  color: var(--white);
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5rem;
+    color: var(--white);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* ===== MENU GRID ===== */
+/* Navigation */
+nav {
+    background-color: var(--brown);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--yellow);
+}
+
+.cart-icon {
+    color: var(--white);
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: var(--pink);
+    color: var(--white);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Menu Section */
 .menu-section {
-  padding: 3rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
+    padding: 60px 0;
 }
 
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+.section-title {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    color: var(--brown);
+    font-size: 2.5rem;
+    margin-bottom: 40px;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
+.donut-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.donut-card {
+    background-color: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.donut-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.donut-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.donut-info {
+    padding: 20px;
+}
+
+.donut-info h3 {
+    font-size: 1.5rem;
+    color: var(--brown);
+    margin-bottom: 10px;
+}
+
+.donut-info p {
+    color: var(--text);
+    margin-bottom: 15px;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--brown);
+    margin-bottom: 15px;
+}
+
+.add-to-cart {
+    background-color: var(--yellow);
+    color: var(--brown);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.add-to-cart:hover {
+    background-color: #ffc233;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .logo-img {
-    height: 80px;
-  }
-  
-  .menu-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .donut-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
 }
 
 @media (max-width: 480px) {
-  .menu-grid {
-    grid-template-columns: 1fr;
-  }
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .donut-grid {
+        grid-template-columns: 1fr;
+    }
 }
