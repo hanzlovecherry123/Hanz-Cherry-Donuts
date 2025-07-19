@@ -1,93 +1,48 @@
-// ===== DOM ELEMENTS =====
-const callButton = document.querySelector('.call-button');
-const donutCards = document.querySelectorAll('.donut-card');
-const cartIcon = document.querySelector('.cart-icon');
-const cartCount = document.querySelector('.cart-count');
-const navLinks = document.querySelectorAll('nav a');
+// ===== DONUT DATA =====
+const donuts = [
+  { name: "Cherry Donut", flavor: "Cherry Flavor", price: "₱50", image: "assets/img/cherry-donut.jpg" },
+  { name: "Honey & Choco", flavor: "Honey and Choco Flavor", price: "₱50", image: "assets/img/honey-choco-donut.jpg" },
+  { name: "Choco Sprinkles", flavor: "Chocolate with Sprinkles", price: "₱50", image: "assets/img/choco-sprinkles-donut.jpg" },
+  { name: "Caramel Donut", flavor: "Caramel Flavor", price: "₱50", image: "assets/img/caramel-donut.jpg" },
+  { name: "Strawberry Donut", flavor: "Strawberry Flavor", price: "₱50", image: "assets/img/strawberry-donut.jpg" },
+  { name: "Classic Donut", flavor: "Regular Donut", price: "₱50", image: "assets/img/regular-donut.jpg" }
+];
 
-// ===== GLOBAL VARIABLES =====
-let cartItems = 0;
-
-// ===== FUNCTIONS =====
-
-// 1. Call Button Alert
-function handleCallButton() {
-  alert("📞 Calling Hanz & Cherry Donuts: +1 (555) 123-4567");
-}
-
-// 2. Donut Card Hover Animation
-function addDonutHoverEffect() {
-  donutCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      card.style.transform = 'scale(1.05)';
-      card.querySelector('h2').style.color = '#ff6b6b'; // Cherry red
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'scale(1)';
-      card.querySelector('h2').style.color = '#ff9bb3'; // Original pink
-    });
-  });
-}
-
-// 3. Add to Cart Simulation
-function setupCart() {
-  donutCards.forEach(card => {
-    const addButton = document.createElement('button');
-    addButton.className = 'add-to-cart';
-    addButton.innerHTML = '<i class="fas fa-cart-plus"></i> Add';
-    card.appendChild(addButton);
-
-    addButton.addEventListener('click', (e) => {
-      e.stopPropagation();
-      cartItems++;
-      cartCount.textContent = cartItems;
-      cartIcon.classList.add('shake');
-      
-      // Reset animation
-      setTimeout(() => cartIcon.classList.remove('shake'), 500);
-      
-      // Visual feedback
-      card.style.boxShadow = '0 0 15px #ff9bb3';
-      setTimeout(() => card.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)', 1000);
-    });
-  });
-}
-
-// 4. Smooth Scrolling for Navigation
-function enableSmoothScroll() {
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href');
-      if (targetId === '#') return;
-      
-      document.querySelector(targetId).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
-}
-
-// 5. Initialize Everything
-function init() {
-  handleCallButton();
-  addDonutHoverEffect();
+// ===== INITIALIZE PAGE =====
+document.addEventListener('DOMContentLoaded', () => {
+  renderDonuts();
   setupCart();
-  enableSmoothScroll();
+});
+
+// ===== RENDER DONUT CARDS =====
+function renderDonuts() {
+  const menuGrid = document.querySelector('.menu-grid');
   
-  // Load cart items from localStorage (optional)
-  if (localStorage.getItem('cartItems')) {
-    cartItems = parseInt(localStorage.getItem('cartItems'));
-    cartCount.textContent = cartItems;
-  }
+  donuts.forEach(donut => {
+    const card = document.createElement('div');
+    card.className = 'donut-card';
+    card.innerHTML = `
+      <img src="${donut.image}" alt="${donut.name}">
+      <h3>${donut.name}</h3>
+      <p>${donut.flavor}</p>
+      <p class="price">${donut.price}</p>
+      <button class="add-to-cart">Add to Cart</button>
+    `;
+    menuGrid.appendChild(card);
+  });
 }
 
-// ===== EVENT LISTENERS =====
-callButton.addEventListener('click', handleCallButton);
-document.addEventListener('DOMContentLoaded', init);
-
-// Save cart on page close (optional)
-window.addEventListener('beforeunload', () => {
-  localStorage.setItem('cartItems', cartItems);
-});
+// ===== CART FUNCTIONALITY =====
+function setupCart() {
+  let cartCount = 0;
+  const cartIcon = document.querySelector('.cart-count');
+  
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('add-to-cart')) {
+      cartCount++;
+      cartIcon.textContent = cartCount;
+      e.target.textContent = "Added!";
+      setTimeout(() => e.target.textContent = "Add to Cart", 1000);
+    }
+  });
+}
